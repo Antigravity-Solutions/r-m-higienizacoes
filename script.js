@@ -277,10 +277,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (heroMediaContainer) {
             const heroImageSrc = getConfigValue('hero.image');
             const heroImageAlt = getConfigValue('hero.imageAlt') || "Serviços profissionais";
+            const heroImageSrcSet = getConfigValue('hero.imageSrcSet');
+            const heroImageSizes = getConfigValue('hero.imageSizes');
+            const heroImageWidth = getConfigValue('hero.imageWidth') || 928;
+            const heroImageHeight = getConfigValue('hero.imageHeight') || 1152;
 
             if (heroImageSrc) {
                 heroMediaContainer.innerHTML = `
-                    <img src="${heroImageSrc}" alt="${heroImageAlt}" class="hero-image" width="928" height="1152" loading="eager" fetchpriority="high">
+                    <img src="${heroImageSrc}" ${heroImageSrcSet ? `srcset="${heroImageSrcSet}" sizes="${heroImageSizes || '100vw'}"` : ''} alt="${heroImageAlt}" class="hero-image" width="${heroImageWidth}" height="${heroImageHeight}" loading="eager" fetchpriority="high">
                 `;
             } else {
                 heroMediaContainer.innerHTML = `
@@ -403,11 +407,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const paragraphs = Array.isArray(aboutData.paragraphs) ? aboutData.paragraphs : [];
         const image = aboutData.image;
         const imageAlt = aboutData.imageAlt || "Sobre nós";
+        const imageSrcSet = aboutData.imageSrcSet;
+        const imageSizes = aboutData.imageSizes;
+        const imageWidth = aboutData.imageWidth || 600;
+        const imageHeight = aboutData.imageHeight || 400;
 
         let mediaHTML = '';
         if (image) {
             mediaHTML = `
-                <img src="${image}" alt="${imageAlt}" class="about-image" loading="lazy" width="600" height="400">
+                <img src="${image}" ${imageSrcSet ? `srcset="${imageSrcSet}" sizes="${imageSizes || '100vw'}"` : ''} alt="${imageAlt}" class="about-image" loading="lazy" width="${imageWidth}" height="${imageHeight}">
             `;
         } else {
             mediaHTML = `
