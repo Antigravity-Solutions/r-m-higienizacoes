@@ -354,6 +354,13 @@ h4 {
     color: var(--color-primary);
 }
 
+.brand-logo {
+    display: block;
+    width: 76px;
+    height: 76px;
+    object-fit: contain;
+}
+
 .logo-icon {
     width: 32px;
     height: 32px;
@@ -607,7 +614,7 @@ h4 {
     display: block;
     width: 100%;
     height: auto;
-    aspect-ratio: 29 / 36;
+    aspect-ratio: 3 / 4;
     object-fit: cover;
     object-position: center;
     border-radius: var(--radius-lg);
@@ -1478,8 +1485,8 @@ h4 {
 .about-image {
     width: 100%;
     height: auto;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
+    aspect-ratio: 3 / 4;
+    object-fit: contain;
     display: block;
     transition: transform 0.3s ease;
 }

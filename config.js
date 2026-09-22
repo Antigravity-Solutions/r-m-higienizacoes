@@ -16,7 +16,7 @@ const siteConfig = {
   // Eventos locais de intenção de contato; habilite apenas se houver plano de mensuração.
   analytics: { trackContactClicks: false },
 
-  // Ative apenas depois de incluir imagens/depoimentos reais e autorizados.
+  // Galeria e depoimentos permanecem desativados nesta versão.
   sections: {
     gallery: false,
     testimonials: false
@@ -79,8 +79,12 @@ const siteConfig = {
     title: "Higienização profissional de estofados em Santa Maria, no conforto da sua casa",
     subtitle: "Cuidado para os estofados da sua casa e do seu veículo.",
     description: "Higienização e impermeabilização de sofás, além de higienização de colchões, cadeiras, poltronas e bancos automotivos. Consulte a disponibilidade da equipe.",
-    image: "", // Caminho para imagem real (ex: "assets/img/hero.jpg"). Se vazio, exibe o placeholder.
-    imageAlt: "Sofá em ambiente residencial fotografado pela R&M"
+    image: "assets/img/rm-10-sofa-cinza-frontal-960w.webp",
+    imageSrcSet: "assets/img/rm-10-sofa-cinza-frontal-480w.webp 480w, assets/img/rm-10-sofa-cinza-frontal-960w.webp 960w, assets/img/rm-10-sofa-cinza-frontal-1440w.webp 1440w",
+    imageSizes: "(max-width: 767px) 100vw, 50vw",
+    imageWidth: 960,
+    imageHeight: 1280,
+    imageAlt: "Sofá cinza junto à parede em ambiente residencial"
   },
 
   // Lista de Serviços Oferecidos
@@ -189,8 +193,12 @@ const siteConfig = {
       "Há 2 anos, a R&M Higienizações atende Santa Maria/RS com serviços de higienização e impermeabilização de estofados.",
       "O atendimento é feito a domicílio, em horários agendados, com equipamentos profissionais e atenção aos detalhes."
     ],
-    image: "",
-    imageAlt: "Registro de atendimento da R&M"
+    image: "assets/img/rm-01-colchao-e-equipamentos-960w.webp",
+    imageSrcSet: "assets/img/rm-01-colchao-e-equipamentos-480w.webp 480w, assets/img/rm-01-colchao-e-equipamentos-960w.webp 960w, assets/img/rm-01-colchao-e-equipamentos-1440w.webp 1440w",
+    imageSizes: "(max-width: 767px) 100vw, 50vw",
+    imageWidth: 960,
+    imageHeight: 1280,
+    imageAlt: "Equipamento e produtos de higienização posicionados sobre um colchão"
   },
 
   // Retomar quando houver foto selecionada e autorizada do processo.
