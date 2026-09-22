@@ -1,5 +1,5 @@
 /**
- * CONFIGURAÇÃO DO SITE - TEMPLATE LOCAL BUSINESS
+ * CONTEÚDO DA R&M HIGIENIZAÇÕES - PREVIEW
  * 
  * Altere os valores abaixo para personalizar o site para um novo cliente.
  * Não é necessário mexer nos arquivos HTML, CSS ou JS.
@@ -26,7 +26,6 @@ const siteConfig = {
   navigation: [
     { label: "Início", target: "inicio" },
     { label: "Serviços", target: "servicos" },
-    { label: "Resultados", target: "resultados" },
     { label: "Sobre", target: "quem-somos" },
     { label: "Dúvidas", target: "faq" },
     { label: "Contato", target: "contato" }
@@ -34,26 +33,25 @@ const siteConfig = {
 
   // Dados fundamentais da empresa
   business: {
-    name: "Serviços em Geral",
-    segment: "Serviços",
-    slogan: "Atendimento rápido, profissional e confiável.",
-    city: "Minha cidade - UF",
-    region: "Minha região",
-    cnpj: "CNPJ 00.000.000/0000-00",
-    phonePrimary: "(00) 00000-0000",
-    //phoneSecondary: "(00) 00000-0000",
-    phonePrimaryRaw: "(00) 00000-0000",
-    whatsappRaw: "(00) 00000-0000",
-    whatsappMessage: "Olá, preciso de atendimento. (Via Site)",
-    instagram: "@meu_insta",
-    instagramUrl: "https://www.instagram.com/meu_insta/"
+    name: "R&M Higienizações",
+    segment: "Higienização de Estofados",
+    slogan: "Cuidado profissional com os seus estofados, no conforto da sua casa.",
+    city: "Santa Maria - RS",
+    region: "Santa Maria/RS",
+    phonePrimary: "(55) 99242-2442",
+    phonePrimaryRaw: "5555992422442",
+    whatsappRaw: "5555992422442",
+    whatsappMessage: "Olá! Vim pelo site e gostaria de solicitar um orçamento para meu estofado.",
+    instagram: "@higienizacao.rem",
+    instagramUrl: "https://www.instagram.com/higienizacao.rem/"
   },
 
   // Configurações de Localização e Mapa
   location: {
-    title: "Atendimento em Minha cidade e Região",
-    description: "Atendemos residências, empresas, condomínios e chácaras.",
-    address: "Rua Azul, 8 - Meu Bairro, Minha cidade - UF",
+    title: "Atendimento a domicílio em Santa Maria/RS",
+    description: "Atendemos todos os bairros de Santa Maria. Cidades da região sob consulta e conforme disponibilidade da equipe.",
+    coverage: ["Todos os bairros de Santa Maria/RS", "Cidades da região sob consulta e disponibilidade"],
+    address: "",
     mapsEmbedUrl: "",
     mapsExternalUrl: ""
   },
@@ -61,75 +59,90 @@ const siteConfig = {
   // Tema de Cores do Site (Opcional)
   // Caso queira mudar a paleta do site de acordo com a marca do cliente
   theme: {
-    primary: "#1a10a0",       // Cor principal (ex: Azul escuro)
-    secondary: "#d90429",     // Cor secundária/botões (ex: Vermelho emergência)
-    accent: "#ffb703",        // Cor de destaque/estrelas (ex: Amarelo)
-    whatsapp: "#25d366"       // Cor do WhatsApp
+    primary: "#123a87",
+    secondary: "#2366b4",
+    accent: "#69b5e4",
+    whatsapp: "#25d366"
   },
 
   // Configurações de SEO da Página
   seo: {
-    title: "Serviços em Geral | Atendimento Profissional",
-    description: "Serviços em Geral com atendimento rápido e profissional em Minha cidade e Região.",
-    keywords: "serviços locais, atendimento profissional, Serviços em Geral, Minha cidade e Região",
+    title: "Higienização de Estofados em Santa Maria | R&M Higienizações",
+    description: "Higienização e impermeabilização de estofados em Santa Maria/RS, com atendimento a domicílio e horário agendado. Solicite um orçamento à R&M.",
+    keywords: "higienização de sofás, impermeabilização de sofás, higienização de colchões, Santa Maria RS",
     shareImage: ""
   },
 
   // Conteúdo da Seção Hero (Topo da Página)
   hero: {
-    badges: ["Atendimento rápido", "Orçamento fácil"],
-    title: "Serviços de Manutenção 24 Horas",
-    subtitle: "Soluções rápidas para residências, empresas e condomínios.",
-    description: "Eletricista, Encanador, Infiltrações, Limpeza de pátios e prédios, Limpeza de Caixa d'água e de calhas, Pintura e mão de obras em geral.",
+    badges: ["Atendimento a domicílio", "Horários agendados"],
+    title: "Higienização profissional de estofados em Santa Maria, no conforto da sua casa",
+    subtitle: "Cuidado para os estofados da sua casa e do seu veículo.",
+    description: "Higienização e impermeabilização de sofás, além de higienização de colchões, cadeiras, poltronas e bancos automotivos. Consulte a disponibilidade da equipe.",
     image: "", // Caminho para imagem real (ex: "assets/img/hero.jpg"). Se vazio, exibe o placeholder.
-    imageAlt: "Serviços profissionais da empresa"
+    imageAlt: "Sofá em ambiente residencial fotografado pela R&M"
   },
 
   // Lista de Serviços Oferecidos
   // "featured: true" destaca o card no layout (estilo "Mais Procurado")
   services: [
     {
-      title: "Eletricista",
-      description: "Serviços de eletricidade residenciais e comerciais.",
+      title: "Higienização de sofás",
+      description: "Cuidado profissional com sofás de diferentes modelos e tamanhos.",
       featured: true
     },
     {
-      title: "Encanador",
-      description: "Serviços de encanamento residenciais e comerciais.",
-      featured: true
+      title: "Impermeabilização de sofás",
+      description: "Aplicação de produto para auxiliar na conservação do tecido, conforme avaliação.",
+      featured: false
     },
     {
-      title: "Pintura",
-      description: "Serviços de pintura residenciais e comerciais.",
-      featured: true
+      title: "Higienização de colchões",
+      description: "Atendimento no local agendado, sem precisar transportar o colchão.",
+      featured: false
+    },
+    {
+      title: "Higienização de cadeiras",
+      description: "Limpeza de cadeiras estofadas em geral.",
+      featured: false
+    },
+    {
+      title: "Higienização de bancos automotivos",
+      description: "Cuidado com os estofados do veículo, sob consulta.",
+      featured: false
+    },
+    {
+      title: "Higienização de poltronas",
+      description: "Atendimento para diferentes tipos de poltrona.",
+      featured: false
     }
   ],
 
   // Diferenciais / Por que escolher
   trustItems: [
     {
-      title: "Atendimento rápido",
-      description: "Resposta ágil para solicitações urgentes."
+      title: "Atendimento personalizado",
+      description: "Orientação conforme a necessidade de cada cliente."
     },
     {
-      title: "Equipe experiente",
-      description: "Profissionais preparados para executar o serviço."
+      title: "Equipamentos profissionais",
+      description: "Ferramentas adequadas aos serviços de higienização."
     },
     {
-      title: "Pagamento facilitado",
-      description: "Condições flexíveis conforme o atendimento."
+      title: "Produtos de qualidade",
+      description: "Produtos selecionados para a execução do serviço."
     },
     {
-      title: "Atendimento local",
-      description: "Atuação em Santa Maria e Região."
+      title: "Atendimento a domicílio",
+      description: "Todos os bairros de Santa Maria/RS."
     },
     {
-      title: "Orçamento objetivo",
-      description: "Comunicação clara antes da execução."
+      title: "Pontualidade",
+      description: "Horários combinados com a equipe."
     },
     {
-      title: "Serviço confiável",
-      description: "Foco em qualidade, segurança e satisfação."
+      title: "Dois anos de atuação",
+      description: "Experiência no atendimento a estofados em Santa Maria."
     }
   ],
 
@@ -142,28 +155,28 @@ const siteConfig = {
   // Perguntas Frequentes (FAQ)
   faq: [
     {
-      question: "Como solicito atendimento?",
-      answer: "Você pode entrar em contato diretamente pelo WhatsApp."
+      question: "Como solicito um orçamento?",
+      answer: "Fale com a R&M pelo WhatsApp e, se possível, envie uma foto do estofado para explicar o que precisa."
     },
     {
-      question: "Vocês atendem empresas?",
-      answer: "Sim, atendemos residências, empresas, comércios e condomínios com a mesma eficiência."
+      question: "O atendimento é a domicílio?",
+      answer: "Sim, em Santa Maria/RS, com horário agendado. Para outras cidades da região, consulte a disponibilidade da equipe."
     },
     {
-      question: "O orçamento é rápido?",
-      answer: "Sim, buscamos entender o problema e orientar o cliente sobre os valores e procedimentos de forma ágil."
+      question: "Quais são as formas de pagamento?",
+      answer: "Dinheiro, Pix, cartão de débito e cartão de crédito."
     },
     {
-      question: "Qual região de atendimento?",
-      answer: "Atendemos Santa Maria e Região com equipe local de prontidão."
+      question: "Qual é o horário de atendimento?",
+      answer: "De segunda a sábado, das 9h às 18h. Outros horários dependem da disponibilidade da equipe."
     }
   ],
 
   trustBar: [
-    "Atendimento rápido",
-    "Equipe especializada",
-    "Orçamento sem compromisso",
-    "Atendimento residencial e empresarial"
+    "Atendimento a domicílio",
+    "Horários agendados",
+    "Santa Maria/RS",
+    "Higienização e impermeabilização"
   ],
 
   // Comparativos exigem duas fotos do mesmo atendimento e contexto confirmado.
@@ -171,29 +184,17 @@ const siteConfig = {
 
   about: {
     eyebrow: "Quem Somos",
-    title: "Atendimento profissional em Minha cidade e Região",
+    title: "R&M Higienizações em Santa Maria/RS",
     paragraphs: [
-      "Somos uma empresa especializada em serviços de manutenção e reparos residenciais e comerciais, com foco em qualidade, agilidade e satisfação do cliente.",
-      "Nosso compromisso é resolver cada problema com qualidade, transparência e agilidade."
+      "Há 2 anos, a R&M Higienizações atende Santa Maria/RS com serviços de higienização e impermeabilização de estofados.",
+      "O atendimento é feito a domicílio, em horários agendados, com equipamentos profissionais e atenção aos detalhes."
     ],
     image: "",
-    imageAlt: "Equipe ou veículo"
+    imageAlt: "Registro de atendimento da R&M"
   },
 
-  equipment: [
-    {
-      title: "Equipamentos de Pintura",
-      description: "Ferramentas e equipamentos de pintura para serviços residenciais e comerciais.",
-      image: "",
-      imageAlt: "Equipamento de pintura"
-    },
-    {
-      title: "Ferramentas profissionais",
-      description: "Ferramentas adequadas para serviços hidráulicos, elétricos e manutenção.",
-      image: "",
-      imageAlt: "Ferramentas profissionais"
-    }
-  ],
+  // Retomar quando houver foto selecionada e autorizada do processo.
+  equipment: [],
 
   faqCta: {
     title: "Ainda ficou com dúvidas?",
@@ -203,8 +204,8 @@ const siteConfig = {
   },
 
   finalCta: {
-    title: "Precisa de atendimento agora?",
-    description: "Entre em contato e receba atendimento rápido em Minha cidade e Região.",
+    title: "Vamos cuidar dos seus estofados?",
+    description: "Fale com a R&M e solicite um orçamento pelo WhatsApp.",
     mascotImage: "",
     mascotAlt: "Mascote"
   }

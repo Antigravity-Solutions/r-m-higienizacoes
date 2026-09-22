@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         hero: {
             badges: ["Atendimento rápido", "Orçamento fácil"],
-            title: "Desentupimento e Serviços de Manutenção 24 Horas",
+            title: "Higienização de estofados em Santa Maria",
             subtitle: "Soluções rápidas para residências, empresas e condomínios.",
             description: "Conte com uma equipe preparada para atender com agilidade, segurança e qualidade.",
             image: "assets/images/banner.png",
@@ -460,10 +460,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const equipmentGrid = document.getElementById('equipment-grid');
         if (!equipmentGrid) return;
 
-        let equipments = getConfigValue('equipment');
-        if (!Array.isArray(equipments) || equipments.length === 0) {
-            equipments = defaultFallbackConfig.equipment;
-        }
+        const equipments = getConfigValue('equipment') || [];
 
         equipmentGrid.innerHTML = '';
         equipments.forEach(equip => {
@@ -710,15 +707,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (titleEl) titleEl.textContent = getConfigValue('location.title') || 'Área de Atendimento';
         if (descEl) descEl.textContent = getConfigValue('location.description') || 'Atendemos Santa Maria e região.';
 
-        const city = getConfigValue('business.city') || 'Santa Maria';
-        const region = getConfigValue('business.region') || 'Santa Maria';
+        const coverage = getConfigValue('location.coverage') || [];
         const locationListContainer = document.getElementById('location-list-container');
         if (locationListContainer) {
-            locationListContainer.innerHTML = `
-                <li>📍 ${city} (Todos os bairros e zonas)</li>
-                <li>📍 Cidades vizinhas e toda a região de ${region}</li>
-                <li>📍 Condomínios fechados, empresas e chácaras sob consulta</li>
-            `;
+            locationListContainer.replaceChildren(...coverage.map(text => {
+                const item = document.createElement('li');
+                item.textContent = `📍 ${text}`;
+                return item;
+            }));
         }
 
         const mapsEmbedUrl = getConfigValue('location.mapsEmbedUrl');
@@ -1052,6 +1048,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('galeria').hidden = getConfigValue('sections.gallery') !== true || gallery.length === 0;
     document.getElementById('avaliacoes').hidden = getConfigValue('sections.testimonials') !== true || testimonials.length === 0;
     document.getElementById('resultados').hidden = beforeAfter.length === 0;
+    document.getElementById('equipamentos').hidden = (getConfigValue('equipment') || []).length === 0;
 
     renderNavigation();
     initContactTracking();
