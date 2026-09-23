@@ -79,7 +79,7 @@
                         <p class="hero-subtitle" data-config="hero.subtitle" data-aos="fade-up" data-aos-delay="100">Cuidado para os estofados da sua casa e do seu veículo.</p>
                         <p class="hero-description" data-config="hero.description" data-aos="fade-up" data-aos-delay="200">Higienização e impermeabilização de estofados com atendimento agendado.</p>
 
-                        <div class="hero-buttons" data-aos="fade-up" data-aos-delay="300">
+                        <div class="hero-buttons">
                             <a href="#" class="btn btn-whatsapp btn-large" data-whatsapp-link="true" target="_blank"
                                 rel="noopener noreferrer">
                                 <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
@@ -88,7 +88,7 @@
                                 </svg>
                                 Chamar no WhatsApp
                             </a>
-                            <a href="#" class="btn btn-phone btn-large" data-phone-primary-link="true">
+                            <a href="#" class="btn btn-phone btn-large" data-phone-primary-link="true" id="hero-phone-btn" hidden>
                                 <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path
@@ -99,7 +99,7 @@
                         </div>
 
                         <!-- Card de Emergência Clicável -->
-                        <a href="#" class="emergency-contact-card" data-phone-primary-link="true"  data-aos="flip-left" data-aos-delay="400">
+                        <a href="#" class="emergency-contact-card" data-phone-primary-link="true" id="hero-emergency-card" data-aos="flip-left" data-aos-delay="400" hidden>
                             <div class="emergency-card-inner">
                                 <div class="emergency-icon-wrapper">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -307,7 +307,7 @@
         </section>
 
         <!-- CTA Final Section -->
-        <section id="contato" class="cta-final-section" data-aos="fade-up">
+        <section id="contato" class="cta-final-section" data-aos="fade-up" hidden>
             <div class="container">
                 <div class="cta-box" id="final-cta-content">
                     <!-- Será gerado dinamicamente -->
