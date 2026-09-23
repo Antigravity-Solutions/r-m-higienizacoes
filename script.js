@@ -537,38 +537,23 @@ document.addEventListener('DOMContentLoaded', () => {
             finalCta = defaultFallbackConfig.finalCta;
         }
 
-        let mascotHTML = '';
-        if (finalCta.mascotImage) {
-            mascotHTML = `
-            <div class="image-placeholder final-cta-mascot-placeholder">
-                    <div class="placeholder-content">
-                        <img src="${finalCta.mascotImage}" alt="${finalCta.mascotAlt || 'Mascote'}" class="cta-mascot-image" width="220" height="220" loading="lazy">
-                    </div>
+        const mascotImage = typeof finalCta.mascotImage === 'string'
+            ? finalCta.mascotImage.trim()
+            : '';
+        const mascotHTML = mascotImage
+            ? `
+                <div class="cta-mascot-container">
+                    <img src="${mascotImage}" alt="${finalCta.mascotAlt || 'Mascote'}" class="cta-mascot-image" width="220" height="220" loading="lazy">
                 </div>
-            `;
-        } else {
-            mascotHTML = `
-                <div class="image-placeholder final-cta-mascot-placeholder">
-                    <div class="placeholder-content">
-                        <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14h-2v-2h2zm0-4h-2V7h2z"/>
-                        </svg>
-                        <span>Imagem do mascote</span>
-                        <small>Adicionar imagem posteriormente</small>
-                    </div>
-                </div>
-            `;
-        }
+            `
+            : '';
 
         finalCtaContent.innerHTML = `
             <h2>${finalCta.title || "Precisa de atendimento agora?"}</h2>
             <p>${finalCta.description || "Entre em contato e receba atendimento rápido."}</p>
             
             <div class="cta-content-wrapper">
-                <div class="cta-mascot-container">
-                    ${mascotHTML}
-                </div>
-                
+                ${mascotHTML}
                 <div class="cta-buttons">
                     <a href="#" class="btn btn-whatsapp btn-large" data-whatsapp-link="true" target="_blank" rel="noopener noreferrer">
                         <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
