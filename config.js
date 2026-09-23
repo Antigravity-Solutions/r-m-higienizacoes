@@ -16,10 +16,13 @@ const siteConfig = {
   // Eventos locais de intenção de contato; habilite apenas se houver plano de mensuração.
   analytics: { trackContactClicks: false },
 
-  // Galeria e depoimentos permanecem desativados nesta versão.
+  // Seções opcionais: os conteúdos mock permanecem no arquivo mesmo quando ocultos.
   sections: {
     gallery: false,
-    testimonials: false
+    testimonials: false,
+    beforeAfter: true,
+    equipment: false,
+    finalCta: false
   },
 
   // Configuração da navegação principal do header
@@ -75,6 +78,8 @@ const siteConfig = {
 
   // Conteúdo da Seção Hero (Topo da Página)
   hero: {
+    showPhoneButton: false,
+    showEmergencyCard: false,
     badges: ["Atendimento a domicílio", "Horários agendados"],
     title: "Higienização profissional de estofados em Santa Maria, no conforto da sua casa",
     subtitle: "Cuidado para os estofados da sua casa e do seu veículo.",
@@ -150,11 +155,37 @@ const siteConfig = {
     }
   ],
 
-  // Galeria opcional: { label: "Descrição da foto", image: "assets/img/foto.webp" }
-  gallery: [],
+  // Substitua os placeholders por fotos autorizadas antes de habilitar sections.gallery.
+  gallery: [
+    {
+      label: "Foto de serviço realizado — exemplo 1",
+      image: ""
+    },
+    {
+      label: "Foto de serviço realizado — exemplo 2",
+      image: ""
+    },
+    {
+      label: "Foto de serviço realizado — exemplo 3",
+      image: ""
+    }
+  ],
 
-  // Depoimentos opcionais: { name: "Nome autorizado", city: "Cidade", text: "Texto real", rating: 5 }
-  testimonials: [],
+  // Substitua os mocks por depoimentos reais e autorizados antes de habilitar sections.testimonials.
+  testimonials: [
+    {
+      name: "Cliente — exemplo",
+      city: "Santa Maria/RS",
+      text: "Adicionar aqui um depoimento real e autorizado.",
+      rating: 5
+    },
+    {
+      name: "Cliente — exemplo",
+      city: "Santa Maria/RS",
+      text: "Adicionar aqui outro depoimento real e autorizado.",
+      rating: 5
+    }
+  ],
 
   // Perguntas Frequentes (FAQ)
   faq: [
@@ -184,7 +215,38 @@ const siteConfig = {
   ],
 
   // Comparativos exigem duas fotos do mesmo atendimento e contexto confirmado.
-  beforeAfter: [],
+  beforeAfter: [
+    {
+      title: "Higienização de sofá",
+      description: "Resultado da higienização de um sofá bege.",
+      beforeImage: "assets/img/rm-08-sofa-bege-manchas-1080w.webp",
+      beforeImageSrcSet: "assets/img/rm-08-sofa-bege-manchas-480w.webp 480w, assets/img/rm-08-sofa-bege-manchas-960w.webp 960w, assets/img/rm-08-sofa-bege-manchas-1080w.webp 1080w",
+      beforeImageWidth: 1080,
+      beforeImageHeight: 1920,
+      beforeAlt: "Sofá bege com manchas antes da higienização",
+      afterImage: "assets/img/rm-09-sofa-bege-vista-1080w.webp",
+      afterImageSrcSet: "assets/img/rm-09-sofa-bege-vista-480w.webp 480w, assets/img/rm-09-sofa-bege-vista-960w.webp 960w, assets/img/rm-09-sofa-bege-vista-1080w.webp 1080w",
+      afterImageWidth: 1080,
+      afterImageHeight: 1920,
+      afterAlt: "Sofá bege depois da higienização",
+      imageSizes: "(max-width: 767px) calc(100vw - 40px), 570px"
+    },
+    {
+      title: "Higienização de colchões",
+      description: "Resultado da higienização de um colchão.",
+      beforeImage: "assets/img/rm-04-colchao-visao-quarto-900w.webp",
+      beforeImageSrcSet: "assets/img/rm-04-colchao-visao-quarto-480w.webp 480w, assets/img/rm-04-colchao-visao-quarto-900w.webp 900w",
+      beforeImageWidth: 900,
+      beforeImageHeight: 1600,
+      beforeAlt: "Colchão com sinais de uso antes da higienização",
+      afterImage: "assets/img/rm-11-colchao-vista-diagonal-1201w.webp",
+      afterImageSrcSet: "assets/img/rm-11-colchao-vista-diagonal-480w.webp 480w, assets/img/rm-11-colchao-vista-diagonal-960w.webp 960w, assets/img/rm-11-colchao-vista-diagonal-1201w.webp 1201w",
+      afterImageWidth: 1201,
+      afterImageHeight: 1600,
+      afterAlt: "Colchão depois da higienização",
+      imageSizes: "(max-width: 767px) calc(100vw - 40px), 570px"
+    }
+  ],
 
   about: {
     eyebrow: "Quem Somos",
@@ -201,8 +263,21 @@ const siteConfig = {
     imageAlt: "Equipamento e produtos de higienização posicionados sobre um colchão"
   },
 
-  // Retomar quando houver foto selecionada e autorizada do processo.
-  equipment: [],
+  // Substitua os mocks por informações confirmadas antes de habilitar sections.equipment.
+  equipment: [
+    {
+      title: "Equipamento profissional — exemplo",
+      description: "Adicionar uma descrição confirmada do equipamento utilizado no atendimento.",
+      image: "",
+      imageAlt: "Equipamento profissional utilizado na higienização"
+    },
+    {
+      title: "Processo de higienização — exemplo",
+      description: "Adicionar uma descrição confirmada desta etapa do processo de higienização.",
+      image: "",
+      imageAlt: "Etapa do processo profissional de higienização"
+    }
+  ],
 
   faqCta: {
     title: "Ainda ficou com dúvidas?",

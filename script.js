@@ -4,6 +4,13 @@ document.addEventListener('DOMContentLoaded', () => {
        FALLBACK CONFIGURATION (In case siteConfig keys are missing or undefined)
        ========================================================================== */
     const defaultFallbackConfig = {
+        sections: {
+            gallery: false,
+            testimonials: false,
+            beforeAfter: false,
+            equipment: false,
+            finalCta: false
+        },
         navigation: [
             { label: "Início", target: "inicio" },
             { label: "Serviços", target: "servicos" },
@@ -33,6 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
             keywords: "serviços locais, atendimento profissional, empresa local"
         },
         hero: {
+            showPhoneButton: false,
+            showEmergencyCard: false,
             badges: ["Atendimento rápido", "Orçamento fácil"],
             title: "Higienização de estofados em Santa Maria",
             subtitle: "Soluções rápidas para residências, empresas e condomínios.",
@@ -234,6 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!item || !item.label || !item.target) return;
             if (item.target === 'galeria' && document.getElementById('galeria')?.hidden) return;
             if (item.target === 'resultados' && document.getElementById('resultados')?.hidden) return;
+            if (item.target === 'contato' && document.getElementById('contato')?.hidden) return;
 
             const li = document.createElement('li');
             const a = document.createElement('a');
@@ -334,10 +344,17 @@ document.addEventListener('DOMContentLoaded', () => {
         beforeAfterGrid.innerHTML = '';
         beforeAfter.forEach(item => {
             const titleHTML = item.title ? `<div class="before-after-title">${item.title}</div>` : '';
+            const descriptionHTML = item.description ? `<p class="before-after-description">${item.description}</p>` : '';
+            const imageSizes = item.imageSizes || '(max-width: 767px) calc(100vw - 40px), 570px';
 
             let beforeHTML = '';
             if (item.beforeImage) {
-                beforeHTML = `<img src="${item.beforeImage}" alt="${item.beforeAlt || 'Antes'}" class="before-after-image" loading="lazy" width="600" height="375">`;
+                const beforeSrcSet = item.beforeImageSrcSet
+                    ? ` srcset="${item.beforeImageSrcSet}" sizes="${imageSizes}"`
+                    : '';
+                const beforeWidth = item.beforeImageWidth || 600;
+                const beforeHeight = item.beforeImageHeight || 750;
+                beforeHTML = `<img src="${item.beforeImage}"${beforeSrcSet} alt="${item.beforeAlt || 'Antes do atendimento'}" class="before-after-image" loading="lazy" decoding="async" width="${beforeWidth}" height="${beforeHeight}">`;
             } else {
                 beforeHTML = `
                     <div class="image-placeholder before-after-placeholder">
@@ -356,7 +373,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             let afterHTML = '';
             if (item.afterImage) {
-                afterHTML = `<img src="${item.afterImage}" alt="${item.afterAlt || 'Depois'}" class="before-after-image" loading="lazy" width="600" height="375">`;
+                const afterSrcSet = item.afterImageSrcSet
+                    ? ` srcset="${item.afterImageSrcSet}" sizes="${imageSizes}"`
+                    : '';
+                const afterWidth = item.afterImageWidth || 600;
+                const afterHeight = item.afterImageHeight || 750;
+                afterHTML = `<img src="${item.afterImage}"${afterSrcSet} alt="${item.afterAlt || 'Depois do atendimento'}" class="before-after-image" loading="lazy" decoding="async" width="${afterWidth}" height="${afterHeight}">`;
             } else {
                 afterHTML = `
                     <div class="image-placeholder before-after-placeholder">
@@ -377,6 +399,7 @@ document.addEventListener('DOMContentLoaded', () => {
             wrapper.className = 'before-after-item-wrapper';
             wrapper.innerHTML = `
                 ${titleHTML}
+                ${descriptionHTML}
                 <div class="before-after before-after-images">
                     <div class="before-after-col before before-after-card comparison-item">
                         <div class="before-after-badge comparison-label">Antes</div>
@@ -649,7 +672,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 11. Gallery Renderer
     function renderGallery() {
-        const galleryItems = (getConfigValue('gallery') || []).filter(item => item?.image && item?.label);
+        const galleryItems = (getConfigValue('gallery') || []).filter(item => item?.label);
         const galleryGrid = document.getElementById('gallery-grid');
         if (!galleryGrid) return;
         galleryGrid.innerHTML = '';
@@ -663,12 +686,29 @@ document.addEventListener('DOMContentLoaded', () => {
         galleryItems.forEach(item => {
             const card = document.createElement('div');
             card.className = 'gallery-card';
-            const image = document.createElement('img');
-            image.src = item.image;
-            image.alt = item.label;
-            image.className = 'gallery-image';
-            image.loading = 'lazy';
-            card.appendChild(image);
+            if (item.image) {
+                const image = document.createElement('img');
+                image.src = item.image;
+                image.alt = item.label;
+                image.className = 'gallery-image';
+                image.loading = 'lazy';
+                image.decoding = 'async';
+                card.appendChild(image);
+            } else {
+                card.innerHTML = `
+                    <div class="image-placeholder gallery-placeholder">
+                        <div class="placeholder-content">
+                            <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                <path d="M21 16V8a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"/>
+                                <circle cx="8.5" cy="10.5" r="1.5"/>
+                                <polyline points="21 16 16 11 12 15 9 12 3 18"/>
+                            </svg>
+                            <span>${item.label}</span>
+                            <small>[Placeholder de Foto]</small>
+                        </div>
+                    </div>
+                `;
+            }
             track.appendChild(card);
         });
 
@@ -1035,13 +1075,17 @@ document.addEventListener('DOMContentLoaded', () => {
        ========================================================================== */
 
     // 1. Dynamic Rendering (Must run first)
-    const gallery = (getConfigValue('gallery') || []).filter(item => item?.image && item?.label);
+    const gallery = (getConfigValue('gallery') || []).filter(item => item?.label);
     const testimonials = (getConfigValue('testimonials') || []).filter(item => item?.name && item?.text);
     const beforeAfter = (getConfigValue('beforeAfter') || []).filter(item => item?.beforeImage && item?.afterImage);
+    const equipment = (getConfigValue('equipment') || []).filter(item => item?.title && item?.description);
     document.getElementById('galeria').hidden = getConfigValue('sections.gallery') !== true || gallery.length === 0;
     document.getElementById('avaliacoes').hidden = getConfigValue('sections.testimonials') !== true || testimonials.length === 0;
-    document.getElementById('resultados').hidden = beforeAfter.length === 0;
-    document.getElementById('equipamentos').hidden = (getConfigValue('equipment') || []).length === 0;
+    document.getElementById('resultados').hidden = getConfigValue('sections.beforeAfter') !== true || beforeAfter.length === 0;
+    document.getElementById('equipamentos').hidden = getConfigValue('sections.equipment') !== true || equipment.length === 0;
+    document.getElementById('contato').hidden = getConfigValue('sections.finalCta') !== true;
+    document.getElementById('hero-phone-btn').hidden = getConfigValue('hero.showPhoneButton') !== true;
+    document.getElementById('hero-emergency-card').hidden = getConfigValue('hero.showEmergencyCard') !== true;
 
     renderNavigation();
     initContactTracking();
