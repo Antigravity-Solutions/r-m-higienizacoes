@@ -17,6 +17,8 @@ Depois acesse `http://localhost:8000/`. O conteúdo do negócio está em `config
 - Seis serviços, WhatsApp `(55) 99242-2442`, Instagram `@higienizacao.rem`, horários, pagamentos e área atendida foram transcritos do briefing.
 - A identidade usa azul e branco, com o logotipo raster fornecido e fundo branco preservado. Hero e seção "Quem somos" usam variantes WebP de duas fotos reais do lote recebido, com `srcset` e dimensões explícitas.
 - `gallery`, `testimonials` e `equipment` mantêm conteúdo de placeholder/mock, mas continuam desativados pelos controles de `sections`. `beforeAfter` está habilitado com os comparativos fornecidos de sofá e colchão; `finalCta` está desativado.
+- O header não exibe atalho de WhatsApp e não há botão flutuante. Os contatos permanecem na primeira dobra, em "Como funciona", na área de atendimento, no FAQ, no CTA final quando habilitado e no rodapé.
+- Links de contato usam `data-contact-type`, `data-contact-location` e `data-contact-label`. Quando `analytics.trackContactClicks` estiver habilitado, cada interação envia `contact_click` ao `dataLayer` com `contact_type`, `contact_location` e `contact_label` declarados no próprio link.
 - `deployment.environment: "preview"`, `allowIndexing: false` e `<meta name="robots" content="noindex, nofollow">` impedem a indexação intencional desta versão.
 - Nenhum domínio, GTM ou analytics de cliente foi configurado.
 

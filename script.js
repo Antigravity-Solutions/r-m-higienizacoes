@@ -541,7 +541,9 @@ document.addEventListener('DOMContentLoaded', () => {
         faqCtaContainer.innerHTML = `
             <p>${faqCta.title || "Ainda ficou com dúvidas?"}</p>
             <span>${faqCta.description || "Entre em contato pelo WhatsApp."}</span>
-            <a href="#" class="btn btn-whatsapp" data-whatsapp-link="true" data-whatsapp-msg="${faqCta.whatsappMessage || ''}" target="_blank" rel="noopener noreferrer">
+            <a href="#" class="btn btn-whatsapp" data-contact-type="whatsapp" data-contact-location="faq"
+                data-contact-label="faq_whatsapp" data-contact-message="${faqCta.whatsappMessage || ''}"
+                target="_blank" rel="noopener noreferrer">
                 <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.965C16.588 1.977 14.12 1.05 11.499 1.05c-5.447 0-9.873 4.372-9.877 9.802-.001 1.774.48 3.509 1.394 5.086L2.025 21.91l6.19-1.616c-.001.001 0 0 0 0zM17.65 14.86c-.29-.145-1.71-.846-1.974-.942-.266-.097-.459-.145-.653.145-.193.29-.747.942-.916 1.135-.168.193-.337.218-.627.072-1.737-.867-2.906-1.536-4.065-3.525-.3-.513.3-.477.859-1.597.09-.182.045-.34-.022-.485-.068-.145-.653-1.573-.895-2.153-.235-.568-.476-.491-.653-.5-.17-.008-.363-.01-.555-.01-.193 0-.507.072-.772.362-.266.29-1.013.99-1.013 2.415 0 1.424 1.037 2.803 1.182 2.996.145.193 2.04 3.115 4.939 4.368.69.298 1.229.476 1.649.609.693.22 1.324.19 1.822.115.556-.084 1.711-.7 1.952-1.376.24-.677.24-1.256.168-1.376-.07-.12-.264-.193-.553-.337z"/>
                 </svg>
@@ -578,13 +580,16 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="cta-content-wrapper">
                 ${mascotHTML}
                 <div class="cta-buttons">
-                    <a href="#" class="btn btn-whatsapp btn-large" data-whatsapp-link="true" target="_blank" rel="noopener noreferrer">
+                    <a href="#" class="btn btn-whatsapp btn-large" data-contact-type="whatsapp"
+                        data-contact-location="final_cta" data-contact-label="final_cta_whatsapp"
+                        target="_blank" rel="noopener noreferrer">
                         <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.965C16.588 1.977 14.12 1.05 11.499 1.05c-5.447 0-9.873 4.372-9.877 9.802-.001 1.774.48 3.509 1.394 5.086L2.025 21.91l6.19-1.616c-.001.001 0 0 0 0zM17.65 14.86c-.29-.145-1.71-.846-1.974-.942-.266-.097-.459-.145-.653.145-.193.29-.747.942-.916 1.135-.168.193-.337.218-.627.072-1.737-.867-2.906-1.536-4.065-3.525-.3-.513.3-.477.859-1.597.09-.182.045-.34-.022-.485-.068-.145-.653-1.573-.895-2.153-.235-.568-.476-.491-.653-.5-.17-.008-.363-.01-.555-.01-.193 0-.507.072-.772.362-.266.29-1.013.99-1.013 2.415 0 1.424 1.037 2.803 1.182 2.996.145.193 2.04 3.115 4.939 4.368.69.298 1.229.476 1.649.609.693.22 1.324.19 1.822.115.556-.084 1.711-.7 1.952-1.376.24-.677.24-1.256.168-1.376-.07-.12-.264-.193-.553-.337z"/>
                         </svg>
                         Chamar no WhatsApp
                     </a>
-                    <a href="#" class="btn btn-phone btn-large" data-phone-primary-link="true" id="cta-phone-btn">
+                    <a href="#" class="btn btn-phone btn-large" data-contact-type="phone"
+                        data-contact-location="final_cta" data-contact-label="final_cta_phone" id="cta-phone-btn">
                         Ligar Agora
                     </a>
                 </div>
@@ -796,7 +801,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 captionHTML += `<span>📍 ${address}</span>`;
             }
             if (mapsExternalUrl) {
-                captionHTML += `<br><a href="${mapsExternalUrl}" target="_blank" rel="noopener noreferrer" class="map-external-link">Visualizar endereço no Google Maps</a>`;
+                captionHTML += `<br><a href="${mapsExternalUrl}" target="_blank" rel="noopener noreferrer" class="map-external-link" data-contact-type="maps" data-contact-location="service_area" data-contact-label="service_area_maps">Visualizar endereço no Google Maps</a>`;
             }
             if (captionHTML) {
                 mapCaption.innerHTML = captionHTML;
@@ -833,16 +838,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if (getConfigValue('analytics.trackContactClicks') !== true) return;
         document.addEventListener('click', event => {
             const target = event.target instanceof Element ? event.target : event.target?.parentElement;
-            const link = target?.closest('a[data-whatsapp-link], a[data-phone-primary-link], a[data-instagram-link], a.map-external-link');
+            const link = target?.closest('a[data-contact-type][data-contact-location][data-contact-label]');
             if (!link) return;
-            const contactType = link.hasAttribute('data-whatsapp-link') ? 'whatsapp'
-                : link.hasAttribute('data-phone-primary-link') ? 'phone'
-                : link.hasAttribute('data-instagram-link') ? 'instagram' : 'maps';
-            const location = link.closest('section')?.id || (link.closest('header') ? 'header' : 'footer');
             try {
                 window.dataLayer = window.dataLayer || [];
-                window.dataLayer.push({ event: 'contact_click', contact_type: contactType,
-                    contact_location: location, contact_label: link.textContent.trim() });
+                window.dataLayer.push({
+                    event: 'contact_click',
+                    contact_type: link.dataset.contactType,
+                    contact_location: link.dataset.contactLocation,
+                    contact_label: link.dataset.contactLabel
+                });
             } catch {
                 // Falhas de mensuração não devem impedir a navegação do contato.
             }
@@ -915,22 +920,22 @@ document.addEventListener('DOMContentLoaded', () => {
     function bindWhatsappLinks() {
         const whatsappRaw = getConfigValue('business.whatsappRaw');
         const whatsappMsg = getConfigValue('business.whatsappMessage');
-        document.querySelectorAll('[data-whatsapp-link="true"]').forEach(link => {
-            const customMsg = link.getAttribute('data-whatsapp-msg') || whatsappMsg;
+        document.querySelectorAll('[data-contact-type="whatsapp"]').forEach(link => {
+            const customMsg = link.dataset.contactMessage || whatsappMsg;
             link.href = `https://wa.me/${whatsappRaw}?text=${encodeURIComponent(customMsg)}`;
         });
     }
 
     function bindPhoneLinks() {
         const phonePrimaryRaw = getConfigValue('business.phonePrimaryRaw');
-        document.querySelectorAll('[data-phone-primary-link="true"]').forEach(link => {
+        document.querySelectorAll('[data-contact-type="phone"]').forEach(link => {
             link.href = `tel:+${phonePrimaryRaw}`;
         });
     }
 
     function bindInstagramLinks() {
         const instagramUrl = getConfigValue('business.instagramUrl');
-        document.querySelectorAll('[data-instagram-link="true"]').forEach(link => {
+        document.querySelectorAll('[data-contact-type="instagram"]').forEach(link => {
             link.href = instagramUrl;
         });
     }
@@ -1130,29 +1135,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Floating WhatsApp Avoidance Observer
-    const whatsappFloating = document.getElementById('whatsappFloating');
-    const footer = document.querySelector('.main-footer');
-    if (whatsappFloating && footer) {
-        const footerObserverOptions = {
-            root: null,
-            threshold: 0,
-            rootMargin: '0px'
-        };
-
-        const footerObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    whatsappFloating.classList.add('scrolled-to-footer');
-                } else {
-                    whatsappFloating.classList.remove('scrolled-to-footer');
-                }
-            });
-        }, footerObserverOptions);
-
-        footerObserver.observe(footer);
-    }
-    
     /* ==========================================================================
         INTERSECTION OBSERVER FOR ANIMATIONS
        ========================================================================== */

@@ -393,6 +393,10 @@ h4 {
     gap: 25px;
 }
 
+.nav-menu {
+    margin-left: auto;
+}
+
 .nav-link {
     font-weight: 600;
     color: var(--color-primary);
@@ -1278,62 +1282,6 @@ h4 {
 }
 
 /* ==========================================================================
-   WHATSAPP FLOATING BUTTON (ALWAYS VISIBLE WITH INTELLIGENT HIDING)
-   ========================================================================== */
-.whatsapp-floating {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    z-index: 999;
-    transition: opacity var(--transition-normal), transform var(--transition-normal);
-}
-
-.whatsapp-floating.scrolled-to-footer {
-    opacity: 0.15;
-    pointer-events: none;
-    /* Desativa cliques quando parcialmente escondido */
-    transform: scale(0.8);
-}
-
-.btn-floating-whatsapp {
-    border-radius: 50px;
-    padding: 14px 22px;
-    box-shadow: var(--shadow-lg);
-    border: 2px solid #ffffff;
-    font-size: 0.92rem;
-    white-space: nowrap;
-    animation: wiggle 4s infinite ease-in-out;
-}
-
-@keyframes wiggle {
-
-    0%,
-    100% {
-        transform: scale(1);
-    }
-
-    10% {
-        transform: scale(1.08) rotate(-3deg);
-    }
-
-    20% {
-        transform: scale(1.08) rotate(3deg);
-    }
-
-    30% {
-        transform: scale(1.08) rotate(-3deg);
-    }
-
-    40% {
-        transform: scale(1.08) rotate(3deg);
-    }
-
-    50% {
-        transform: scale(1);
-    }
-}
-
-/* ==========================================================================
    V2 REFINEMENTS & NEW SECTIONS
    ========================================================================== */
 
@@ -1898,11 +1846,6 @@ h4 {
 /* Mobile Specific Drawer/Menu Styles (< 767px) */
 @media (max-width: 767px) {
 
-    /* Hide desktop header actions button */
-    .btn-header {
-        display: none;
-    }
-
     .menu-toggle {
         display: flex;
     }
@@ -2196,25 +2139,6 @@ section[id] {
 .final-cta-mascot-placeholder small {
     font-size: 0.75rem;
     opacity: 0.7;
-}
-
-/* Mobile Header Layout Enhancements */
-@media (max-width: 767px) {
-    .btn-header {
-        display: inline-flex !important;
-        padding: 8px 14px;
-        font-size: 0.85rem;
-        gap: 6px;
-    }
-
-    .btn-header span {
-        display: none !important;
-        /* WhatsApp Compacto */
-    }
-
-    .btn-header svg {
-        margin-right: 0 !important;
-    }
 }
 
 /* ==========================================================================
