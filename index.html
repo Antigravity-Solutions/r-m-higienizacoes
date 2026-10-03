@@ -3,6 +3,22 @@
 
 <head>
     <meta charset="UTF-8">
+    <script src="config.js"></script>
+    <!-- Google Tag Manager: ID centralizado em config.js. -->
+    <script>
+        (function (w, d) {
+            const id = siteConfig.analytics?.gtmContainerId;
+            if (typeof id !== 'string' || !/^GTM-[A-Z0-9]+$/.test(id)) return;
+            if (d.getElementById('rm-gtm-script')) return;
+            w.dataLayer = w.dataLayer || [];
+            w.dataLayer.push({ 'gtm.start': Date.now(), event: 'gtm.js' });
+            const script = d.createElement('script');
+            script.id = 'rm-gtm-script';
+            script.async = true;
+            script.src = 'https://www.googletagmanager.com/gtm.js?id=' + id;
+            d.head.appendChild(script);
+        })(window, document);
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Personalize os metadados no HTML antes de liberar indexação em produção. -->
@@ -27,6 +43,9 @@
 </head>
 
 <body>
+    <!-- Sem JavaScript, o ID precisa ser literal; sincronizar ao trocar o contêiner. -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T2FBJ9XF"
+        height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
 
     <!-- Header Fixo -->
     <header class="main-header">
@@ -404,7 +423,6 @@
     </footer>
 
     <!-- JavaScript Data and Controller (Sem ES modules, carrega sequencialmente) -->
-    <script src="config.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="script.js" defer></script>
 </body>

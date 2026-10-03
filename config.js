@@ -13,8 +13,11 @@ const siteConfig = {
     allowIndexing: false
   },
 
-  // Eventos locais de intenção de contato; habilite apenas se houver plano de mensuração.
-  analytics: { trackContactClicks: false },
+  // GTM gerencia a Google tag e os eventos GA4; não instalar gtag.js em paralelo.
+  analytics: {
+    gtmContainerId: "GTM-T2FBJ9XF",
+    trackContactClicks: true
+  },
 
   // Seções opcionais: os conteúdos mock permanecem no arquivo mesmo quando ocultos.
   sections: {
